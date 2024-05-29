@@ -1,0 +1,377 @@
+@charset "UTF-8";
+p{
+	font-size: 15px !important;
+}
+textarea{
+	font-size: 20px;
+	border-color:#dddddd;
+	width: 610px;
+}
+.main_content{
+	width: 100%;
+	height: 80%;
+	margin-top: 20px;
+	width:100%;
+	z-index: -1;
+}
+.main_content img{
+	z-index: -1;
+	width: 100%;
+	margin-top: -20px;
+}
+.main_content>h1{
+	margin-top: 13px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.reserve{
+	margin-top: 30px;
+	text-align: center;
+}
+.sideleft{
+	width:60%;
+	margin:auto;
+	text-align:center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.sideleft h2, .sideleft p{
+	margin-left: 115px;
+	text-align:left;
+}
+.sideleft img{
+	margin-top: 10px;
+}
+.search input[type=button]{
+	font-size: 25px;
+	height: 60px;
+	width: 150px;
+	background: #EC7113;
+	border-color: #EC7113;
+	color: white;
+	cursor: pointer;
+	border-radius: 10px;
+	font-weight: bold;
+}
+.search input[type=button]:hover{
+	background: #FF8B33;
+}
+.search{
+	margin-top: 50px;
+	position: absolute;
+	clear: both;
+	height: 80px;
+	left: 565px;
+}
+.content{
+	margin-top: 170px;
+	margin-left: 565px;
+	z-index: 1;
+}
+.ks-cboxtags input[type=button]{
+	font-size: 15px;
+	height: 30px;
+	width: 80px;
+	background: #EC7113;
+	border-color: #EC7113;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.ks-cboxtags input[type=button]:hover{
+	background: #FF8B33;
+}
+.side input[type=button]{
+	font-size: 20px;
+	height: 35px;
+	width: 100px;
+	background: #EC7113;
+	border-color: #EC7113;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.side input[type=button]:hover{
+	background: #FF8B33;
+}
+.etc{
+	clear:both;
+	margin-top: 120px;
+	margin-left: 565px;
+}
+.etc h2{
+	margin-bottom: 20px;
+}
+.content h2:first-child{
+	margin-bottom: 20px;
+}
+.side{
+	background: white;
+	position: fixed;
+	border: 1px solid black;
+	width: 250px;
+	height: 390px;
+	border-radius: 5px;
+	box-shadow: 0 0 20px gray;
+	right: 60px;
+	top: 300px;
+}
+.side table{
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.side tr{
+	height: 30px;
+}
+
+.side tr:nth-child(3n){
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.side h2{
+	margin: 0;
+	margin-bottom: 10px;
+}
+/* 달력 */
+.calendar {
+	width: 720px;
+	height: 400px;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 1px;
+	position: absolute;
+	display: none;
+	z-index: 3;
+	background-color:white;
+	top: 1040px;
+	right: 616px;
+}
+
+.calendar table {
+	margin-left: 17px;
+	float: left;
+}
+
+.title {
+	font-size: 22px;
+}
+
+.preBtn, .nextBtn{
+	width:30px;
+	height:30px;
+	background: white;
+	border: none;
+	font-size: 30px;
+	margin: 0;
+	line-height: 0;
+}
+.preBtn:hover, .nextBtn:hover{
+	box-sizing: border-box;
+	border-radius: 50%;
+	background:#ed741a;
+	cursor:pointer;
+}
+.preBtn {
+	float: left;
+}
+
+.nextBtn {
+	float: right;
+}
+
+.calendar table th {
+	width: 45px;
+	height: 45px;
+}
+
+.today {
+	color: rgb(192, 192, 192);
+}
+
+.selected {
+	box-sizing: border-box;
+	background-color: #ed741a;
+	border-radius: 50%;
+	color: white;
+}
+
+.between {
+	color: #ed741a;
+}
+
+.com {
+	position: absolute;
+	top: 360px;
+	left: 630px;
+}
+.com input[type=button]{
+	width: 80px;
+	height: 30px;
+	background: #EC7113;
+	border-color: #EC7113;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.com input[type=button]:hover{
+	background: #FF8B33;
+}
+
+/* 체크인 체크아웃*/
+.checkIn,
+.checkOut {
+	background: white;
+	float: left;
+	width: 300px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.checkIn h3,
+.checkOut h3 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.checkIn>span,
+.checkOut>span {
+	color: rgb(192, 192, 192);
+}
+
+/* 반려견 수 */
+.selectSize {
+	float: left;
+	width: 400px;
+	height: 63px;
+	border: 1px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+.selectSize h3 {
+	margin-top: 3px;
+	margin-bottom: 5px !important;
+}
+.selectSize span{
+	margin: 15px;
+	margin-left: -2px;
+}
+/* 반려련 수 내부 div */
+.sizeCbox {
+	position: relative;
+	z-index: 4;
+	width: 400px;
+	border: 1px solid black;
+	height: auto;
+	border-radius: 10px;
+	margin-top: 5px;
+	display: none;
+	background-color: white;
+}
+
+/* 반려견수 - 체크박스 */
+ul.ks-cboxtags {
+	margin-top: 20px;
+	list-style: none;
+	padding: 0 20px 0 20px;
+	font-weight: bold;
+}
+
+ul.ks-cboxtags li {
+	text-align: left;
+	display: block;
+}
+
+ul.ks-cboxtags li label {
+	border: 1px solid black;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: #333333;
+	font-size: 18px;
+	border-radius: 4px;
+	white-space: nowrap;
+	margin: 0 0 10px 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+	display: block;
+}
+
+ul.ks-cboxtags li label {
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "FontAwesome";
+	font-weight: 900;
+	font-size: 24px;
+	padding: 0;
+	margin-right: 15px;
+	content: "\f1db";
+	color: rgba(0, 0, 0, 0.2);
+	-webkit-transition: -webkit-transform .3s ease-in-out;
+	transition: -webkit-transform .3s ease-in-out;
+	-o-transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+	position: absolute;
+	left: 340px;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	ul.ks-cboxtags li label::before {
+		-webkit-transition: none;
+		-o-transition: none;
+		transition: none;
+	}
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+	content: "\f058";
+	-webkit-transition: -webkit-transform .3s ease-in-out;
+	transition: -webkit-transform .3s ease-in-out;
+	-o-transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+	color: #7ecfc0;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+	display: absolute;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+}

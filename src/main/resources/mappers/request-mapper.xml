@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="requestMapper">
+
+	<insert id="insertRequest">
+		insert into counsel
+		values(counsel_no.nextval, #{email}, #{consultingType}, sysdate, #{requestTime}, #{dogInfo}, default, #{userId}, #{userName}, default)
+	</insert>
+	
+	<select id="updateList" resultType="Request">
+		<![CDATA[
+			select *
+			from (select *
+			      from counsel
+			      where status = 'Y'
+			      order by request_no desc)
+			where rownum<=10
+		]]>
+	</select>
+	
+	
+	
+	<select id="getListCount" resultType="_int">
+		select count(*)
+		from counsel
+		where status = 'Y' and user_id=#{id}
+	</select>
+	
+	
+	<select id="selectMyList" resultType="Request">
+		select *
+		from counsel c
+			 join member m using (user_id)
+		where user_id=#{id} and c.status = 'Y'
+		order by request_no desc
+	</select>
+	
+	
+	<update id="userDeleteRequest">
+		update counsel
+		set status = 'N'
+		where request_no = #{requestNo}
+	</update>
+	
+	
+	<select id="selectRequest" resultType="Request">
+		select *
+		from counsel
+		where request_no = #{requestNo} and status = 'Y'
+	</select>
+	
+	
+	<update id="updateRequest">
+		update counsel
+		set email = #{email}, consulting_Type =#{consultingType}, user_name = #{userName}, request_time=#{requestTime}, dog_info=#{dogInfo}
+		where request_no = #{requestNo}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- admin -->
+	<select id="getAllAdminList" resultType="_int">
+		select count(*)
+		from counsel
+		where status = 'Y'
+	</select>
+	
+	<select id="getAdminList" resultType="_int">
+		select count(*)
+		from counsel
+		where status = 'Y' and admin_status = #{adminStatus}
+	</select>
+	
+	<select id="selectAdminList" resultType="Request">
+		select *
+		from counsel c
+			join member m using (user_id)
+		where c.status='Y' and admin_status = #{adminStatus}
+		order by request_no desc
+	</select>
+	
+	
+	<select id="selectAdminAllList" resultType="Request">
+		select *
+		from counsel c
+			join member m using (user_id)
+		where c.status='Y'
+		order by request_no desc
+	</select>
+	
+	
+	<select id="selectAdminDetail" resultType="Request">
+		select *
+		from counsel
+		where request_no = #{requestNo}
+	</select>
+	
+	<update id="acceptRequest">
+		update counsel
+		set admin_status = 'Y'
+		where request_no = #{requestNo}
+	</update>
+	
+	<update id="refuseRequest">
+		update counsel
+		set admin_status = 'N'
+		where request_no = #{requestNo}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="deleteCheck">
+		update counsel
+		set status='N'
+		where request_no in
+		<foreach item="requestNo" collection="list" open="(" separator="," close=")">
+			#{requestNo}
+		</foreach>
+		
+	</select>
+	
+	
+</mapper>

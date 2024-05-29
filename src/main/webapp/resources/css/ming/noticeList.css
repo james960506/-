@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+.board_wrap {
+    width: 1200px;
+    margin: 100px auto;
+}
+
+/*占쎌젫筌륅옙,  겫占쏙옙 젫筌륅옙 占쎄퐬占쎌젟*/
+.board_title{
+    margin-bottom: 30px;
+}
+.board_title strong {
+    font-size: 30px;
+    color:#000000;
+}
+.title{
+   text-align: center;
+}
+.board_title h1{
+    font-size: 3rem;
+}
+.board_title p {
+    margin-top: 5px;
+    font-size: 15px;
+}
+/*甕곌쑵 뱣 占쎄퐬占쎌젟*/
+.bt_wrap {
+    margin-top:10px;
+    text-align: center;
+    font-size: 0;
+    float: right;
+}
+.bt_wrap a:nth-child(1){
+    margin-left: 0;
+}
+.bt_wrap button {
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: black;
+    border-radius: 2px;
+    font-size: 15px;
+}
+/* 뵳 딅뮞占쎈뱜  뇡遺얠쨯 占쎄퐬占쎌젟*/
+.board_list{
+    width: 100%;
+    border-top: 2px solid #000000;
+}
+.board_list > div{
+    border-bottom: 1px solid #000000;
+    text-align: center;
+}
+.board_list > div.top{
+    border-bottom: 1px solid #000000;
+}
+.board_list > div:last-child{
+    border-bottom: 2px solid #000000;
+}
+.board_list > div >div{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 0;
+    font-size: 1.4rem;
+}
+.board_list > div.top > div{
+    font-weight: 600;
+}
+
+/* ⑤벉媛  占쎌겫占쎈열 占쎄퐬占쎌젟*/
+.board_list .num{
+    width: 10%;
+}
+.board_list .title{
+    width: 60%;
+    text-align: left;
+}
+.board_list .top .title{
+    text-align: center;
+}
+.board_list .writer{
+    width: 10%;
+}
+.board_list .date{
+    width: 10%;
+}
+.board_list .count{
+    width: 8%;
+}
+#sub-btn{
+   background: #000000;
+   color: white;
+}
+
+/*占쎈읂占쎌뵠筌욑옙 占쎄퐬占쎌젟*/
+.board_page {
+   font-family: none;
+   margin-top: 30px;
+   text-align: center;
+   font-size: 0;
+}
+
+.board_page a {
+   text-align: center;
+   display: inline-block;
+   width: 30px;
+   height: 30px;
+   box-sizing: border-box;
+   vertical-align: middle;
+   border: 1px solid #ddd;
+   border-left: 0;
+   line-height: 100%;
+}
+
+.board_page a.btn {
+   padding-top: 7px;
+   font-size: 12px;
+   letter-spacing: -3px;
+}
+
+.board_page a.num {
+   padding-top: 6px;
+   font-size: 14px;
+}
+
+.board_page a.num.selected {
+   background-color: #000;
+   border-color: #000;
+   color: #fff;
+}
+
+.board_page a.frist {
+   border-left: 1px solid #ddd;
+}
+
+.search{
+   position: absolute;
+   left: 730px;
+   margin-top: -40px;
+}
+#searchMem{
+   background-color: black;
+   color: white;
+   width: 60px;
+}
+#searchMem:hover{
+   background-color: #414141;
+   color: white;
+   width: 60px;
+}

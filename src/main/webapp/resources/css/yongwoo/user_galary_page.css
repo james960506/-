@@ -1,0 +1,109 @@
+/* td{
+    border: 2px black solid;
+    padding: 3% 0% 3% 6%;
+    /*상 우 하 좌*/
+
+#tbody{
+    margin: auto;
+}
+
+#setting{
+    margin: auto;
+    padding-left: 1.5% ;
+    border: 1px solid black;
+    width: 60%;
+    border-radius: 15px;
+}
+
+#check{
+    display: inline-block;
+    position: relative;
+    left: 1%;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: black;
+    font-size: 20px;
+}
+
+a:visited{
+    color: #000;
+    font-size: 20px;
+}
+
+#check>a{
+    text-decoration: none;
+}
+
+#check:hover{
+    cursor: pointer;
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#count{
+    margin-left: 20%;
+    float: left;
+    font-size: 20px;
+}
+
+
+#searchInput, #searchType{
+    height: 30px;
+    border-radius: 5px;
+}
+
+#searchBtn{
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+#searchBox{
+		    width: 20%; 
+		    display: block; 
+		    float: right;
+		    margin-right: 14.1%;
+		}
+		
+
+#searchBtn:hover{
+    background-color: aliceblue;
+    box-shadow: 0.1px 0.1px 2px;
+    cursor: pointer;
+}
+
+#adminBtn{
+    float: right; margin-right: 7%;
+}
+
+#adminBtn>button{
+    width: 60px;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#paging{
+    text-align: center;
+}
+
+ #topSpace{
+ 	height: 100px;
+ }
+ 
+ .card-img-top{
+    		height: 15rem;
+    		object-fit: cover;
+    	}
+    	
+.card:hover{
+	cursor: pointer;
+    box-shadow: 2px 5px 5px 1px gray;
+}
+
+#searchTitle{
+	width: 132px;
+	height: 30px;
+}

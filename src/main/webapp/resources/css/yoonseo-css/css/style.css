@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+ul, li {
+    list-style: none;
+}
+
+button {
+    text-decoration: none;
+    color: inherit;
+}
+
+.boardBtn{
+	width:100px;
+	height:30px;
+	border-color:white;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+#review{
+	background-color: #FFD966;
+	border-color: #FFD966;
+	
+}
+#answer{
+	background-color: #FFD966;
+	border-color: #FFD966;
+	
+}
+#boast{
+	background-color: #FFD966;
+	border-color: #FFD966;
+}
+
+.board_wrap {
+    width: 1200px;
+    margin: 100px auto;
+}
+
+.board_title {
+    margin-bottom: 30px;
+}
+
+.board_title strong {
+    font-size: 30px;
+    color:#FFD966;
+}
+
+.board_title p {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.bt_wrap {
+    margin-top:10px;
+    text-align: center;
+    font-size: 0;
+    float: right;
+}
+
+#heart-like{
+	margin-top: 10px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+#like{
+	font-size: 15px;
+}
+
+.bt_wrap button {
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #FFD966;
+    border-radius: 2px;
+    font-size: 15px;
+}
+
+.bt_wrap button:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap1 {
+    margin-top:30px;
+    text-align: center;
+    font-size: 0;
+    float: right;
+}
+
+.bt_wrap1 button {
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #FFD966;
+    border-radius: 2px;
+    font-size: 15px;
+}
+
+.bt_wrap1 button:first-child {
+    margin-left: 0;
+}
+
+.seach_btn{
+	margin-left: 2px;
+	border: 1px solid #FFD966;
+	border-radius: 2px;
+	font-size: 15px;
+	padding-top: 4px;
+	padding-bottom:4px;
+	padding-left:8px;
+	padding-right:8px;
+	background-color: #FFD966;
+	
+}
+
+.on {
+    background: #FFD966;
+    color: #00;
+}
+
+.board_list {
+    width: 100%;
+    border-top: 2px solid #FFD966;
+}
+
+.board_list > div {
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+}
+
+.board_list > div.top {
+    border-bottom: 1px solid #999;
+}
+
+.board_list > div:last-child {
+    border-bottom: 1px solid #FFD966;
+}
+
+.board_list > div > div {
+    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_list > div.top > div {
+    font-weight: 600;
+}
+
+.board_list .num {
+    width:12%;
+}
+
+.board_list .title {
+    width: 52%;
+    text-align: left;
+}
+
+.board_list .top .title {
+    text-align: center;
+}
+
+.board_list .writer {
+    width: 12%;
+}
+
+.board_list .date {
+    width: 12%;
+}
+
+.board_list .count {
+    width: 12%;
+}
+
+.board_page {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+    
+}
+
+.search{
+	text-align: center;
+	margin-top: 30px;
+}
+
+#selectSearch{
+	width: 100px;
+	height:31px;
+	font-size: 15px;
+	cursor:pointer;
+}
+
+#searchInput{
+	width: 200px;
+	height :32px;
+}
+
+
+
+.board_view {
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.board_view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 20px;
+}
+
+.board_view .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.board_view .info dl {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+    padding-left: 0;
+}
+
+.board_view .info dl::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
+    display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.board_view .info dl dt {
+
+}
+
+.board_view .info dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+.board_view .cont {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    line-height: 160%;
+    font-size: 15px;
+}
+
+.board_write {
+    border-top: 2px solid #000;
+}
+
+.board_write .title,
+.board_write .info {
+    padding: 15px;
+}
+
+.board_write .info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.board_write .title dl {
+    font-size: 0;
+}
+
+.board_write .info dl {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.board_write .title dt,
+.board_write .info dt {
+    width: 100px;
+}
+
+.board_write .title dd {
+    width: calc(100% - 100px);
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.board_write .title input[type="text"] {
+    width: 80%;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+#divtable{
+	display: inline;
+}
+#small-div{
+	display: inline;
+}
+
+
+#replyContent{
+	resize: none;
+	width:100%;
+	border:white;
+	font-size: 15px;
+	
+	
+}
+
+#detail-line{
+	border-top: 1px solid  #FFD966;
+	margin-bottom: 10px;
+}
+
+#reply-id{
+	border:white; 
+	margin: 5px;
+	font-size: 15px;
+}
+
+#reply-line{
+	border:1px solid black;
+	width:500px;
+	border-radius: 10px;
+	
+	
+}
+
+
+#reply-table{
+	margin:5px;
+	width:100%;
+	font-size: 15px;
+	border:1px solid  #FFD966;
+	
+	
+}
+
+#reply-table-tr{
+	width:100%;
+	border-radius: 5px;
+	border:1px solid black;
+	
+}
+
+
+#replyBtn{
+	float: right;
+	background-color: #FFD966;
+	border: #FFD966;
+	border-radius: 5px;
+	font-size: 15px;
+	width:70px;
+	height:30px;
+}
+
+.replyDelete{
+	border:red;
+	border-radius: 5px;
+	background-color: red;
+	color:white;
+	padding:2px;
+}
+
+
+
+.reply-tr{
+	margin:10px;
+}
+
+/*페이지 설정*/
+.board_page {
+   font-family: none;
+   margin-top: 30px;
+   text-align: center;
+   font-size: 0;
+}
+
+.board_page a {
+   text-align: center;
+   display: inline-block;
+   width: 30px;
+   height: 30px;
+   box-sizing: border-box;
+   vertical-align: middle;
+   border: 1px solid #ddd;
+   border-left: 0;
+   line-height: 100%;
+}
+
+.board_page a.btn {
+   padding-top: 7px;
+   font-size: 12px;
+   letter-spacing: -3px;
+}
+
+.board_page a.num {
+   padding-top: 6px;
+   font-size: 14px;
+   text-decoration: none;
+   color:black;
+}
+
+.board_page a.num.selected {
+   background-color: black;
+   border-color: black;
+   color: white;
+   
+}
+
+.board_page a.frist {
+   border-left: 1px solid #ddd;
+}
+
+
+.list-select2{
+	cursor:pointer;
+}
+.list-select3{
+	cursor:pointer;
+}
+.list-select{
+	cursor:pointer;
+}

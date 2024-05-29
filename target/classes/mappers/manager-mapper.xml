@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="managerMapper">
+
+	<select id="selectResList" resultType="Reservation">
+		SELECT RNO, IN_DATE, OUT_DATE, R.STATUS, RESERVE_DATE, TOTALPRICE, PAY_METHOD, CARD_NAME, R.USER_ID, ETC, DNOS, M.UNAME
+		FROM RESERVATION R
+		JOIN MEMBER M ON(R.USER_ID = M.USER_ID)
+		WHERE DELETE_STATUS = 'N'
+		ORDER BY RNO DESC
+	</select>
+	
+	<update id="deleteRes">
+		UPDATE RESERVATION
+		SET DELETE_STATUS = 'Y' WHERE RNO IN
+		<foreach collection="array" index="index" item="deleteRnos" open="(" separator="," close=")">
+			#{deleteRnos}
+		</foreach>
+	</update>
+	
+	<select id="getListCount" resultType="int">
+		SELECT COUNT(*) FROM RESERVATION WHERE DELETE_STATUS = 'N'
+	</select>
+	
+	<select id="searchListCount" resultType="int">
+		SELECT COUNT(*) 
+		FROM RESERVATION R
+		JOIN MEMBER M ON(R.USER_ID = M.USER_ID)
+		WHERE DELETE_STATUS = 'N'
+		<if test="keyword == 'userId'">
+			AND R.USER_ID LIKE '%'|| #{value} ||'%'
+		</if>
+		<if test="keyword == 'name'">
+			AND M.UNAME LIKE '%'|| #{value} ||'%'
+		</if>
+		<if test="keyword == 'reserveDate'">
+			AND RESERVE_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+		<if test="keyword == 'checkIn'">
+			AND OUT_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+		<if test="keyword == 'checkOut'">
+			AND IN_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+	</select>
+	
+	<select id="searchResList" resultType="Reservation">
+		SELECT RNO, IN_DATE, OUT_DATE, R.STATUS, RESERVE_DATE, TOTALPRICE, PAY_METHOD, CARD_NAME, R.USER_ID, ETC, DNOS, M.UNAME
+		FROM RESERVATION R
+		JOIN MEMBER M ON(R.USER_ID = M.USER_ID)
+		WHERE DELETE_STATUS = 'N'
+		<if test="keyword == 'userId'">
+			AND R.USER_ID LIKE '%'|| #{value} ||'%'
+		</if>
+		<if test="keyword == 'name'">
+			AND M.UNAME LIKE '%'|| #{value} ||'%'
+		</if>
+		<if test="keyword == 'reserveDate'">
+			AND RESERVE_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+		<if test="keyword == 'checkIn'">
+			AND OUT_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+		<if test="keyword == 'checkOut'">
+			AND IN_DATE BETWEEN #{inDate} AND #{outDate}
+		</if>
+		ORDER BY RNO DESC
+	</select>
+	
+	<select id="selectRes" resultType="Reservation">
+		SELECT * FROM RESERVATION
+		JOIN MEMBER USING(USER_ID)
+		WHERE RNO = #{rno}
+	</select>
+	
+	<select id="selectDogList" resultType="Dog">
+		SELECT * FROM DOG
+		WHERE DNO IN
+		<foreach collection="array" index="index" item="dnos" open="(" separator="," close=")">
+			#{dnos}
+		</foreach>
+	</select>
+</mapper>
+ 

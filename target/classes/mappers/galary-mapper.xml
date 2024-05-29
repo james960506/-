@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="galaryMapper">
+	<insert id="insertBoard">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="boardNo">
+			select seq_boardid.nextval from dual
+		</selectKey>
+		insert into board values(#{boardNo}, #{title}, #{boardContent}, default, default, default, #{kind}, default, #{userId}) 
+	</insert>
+	
+	
+	
+	<insert id="insertPictureNew">
+		insert all 
+		<foreach collection="list" item="item">
+			into picture values(seq_picture_id, seq_boardid.currval, #{item.fileName}, #{item.fileRename}, #{item.fileLocation}, #{item.thumbnail}, default)
+		</foreach>
+		select * from dual
+	</insert>
+	
+	<insert id="insertPictureUpdate">
+		insert all
+		<foreach collection="list" item="item">
+			into picture values(seq_picture_id, #{item.boardNo}, #{item.fileName}, #{item.fileRename}, #{item.fileLocation}, default, default)
+		</foreach>
+		select * from dual
+	</insert>
+	
+	<select id="selectGalaryBoardList" resultType="Board">
+		select *
+		from board
+		where status = 'Y' and kind = #{type}
+		order by board_no desc
+	</select>
+	
+	<select id="selectGalaryPictureList" resultType="Picture">
+		select *
+		from picture
+		<if test="boardNo == null">
+			where status = 'Y'
+		</if>
+		<if test="boardNo != null">
+			where status = 'Y' and board_no = #{boardNo}
+		</if>
+		order by picture_no asc
+	</select>
+	
+	<select id="countList" resultType="_int">
+		select count(*)
+		from board
+		where kind = #{type} and status = 'Y'
+	</select>
+	
+	<select id="selectBoard" resultType="Board">
+		select *
+		from board
+		where board_no = #{boardNo}
+	</select>
+	
+	<select id="searchList" resultType="Board" parameterType="java.util.Map">
+		select *
+		from board
+		<choose>
+			<when test="title != null and title != ''">
+				where title like #{title} and kind = 'galary'
+			</when>
+			<when test="date != null and date != ''">
+				where to_char(update_date, 'YY/MM/DD') = #{date} and kind = 'galary'
+			</when>
+		</choose>
+		order by  board_no desc
+	</select>
+	
+	<update id="updateViewCount">
+		update board
+		set board_view = board_view + 1
+		where board_no = #{boardNo}
+	</update>
+	
+	<update id="deleteGalaryBoard">
+		update board
+		set status = 'N'
+		where board_no = #{boardNo} and kind = 'galary'
+	</update>
+	
+	<update id="deleteGalaryPicture1"> <!-- parameterType 에도 if 문 적용 가능한가? -->
+		update picture
+		set status = 'N'
+		where board_no = #{boardNo}
+	</update>
+	
+	<update id="deleteGalaryPicture2" parameterType="java.util.Map">
+		update picture
+		set status = 'N', thumbnail = 'N'
+		where board_no = #{boardNo} and file_rename in 
+		
+		<foreach collection="deleteFileName" item="item" open="(" separator="," close=")">
+		#{item}
+		</foreach>
+	</update>
+	
+	<update id="updateBoard">
+		update Board
+		set title = #{title}, board_content = #{boardContent}
+		where board_no = #{boardNo} and kind = 'galary'
+	</update>
+	
+	<update id="updateThumbNail">
+		update picture
+		set thumbnail = 'Y'
+		where board_no = #{boardNo} and picture_no = #{pictureNo} and status = 'Y'
+	</update>
+	
+	<select id="checkLike" resultType="_int" parameterType="java.util.Map">
+		select count(*)
+		from board_like
+		where user_id = #{id} and board_no = #{boardNo}
+	</select>
+	
+	
+	<insert id="insertLike">
+		insert into board_like values(#{id}, #{boardNo})
+	</insert>
+	
+	<delete id="deleteLike">
+		delete from board_like where user_id = #{id} and board_no = #{boardNo}
+	</delete>
+	
+	<select id="updateViewLike" resultType="_int">
+		select count(*)
+		from board_like
+		where board_no = #{boardNo}
+	</select>
+	
+	<select id="replyList" resultType="Reply">
+		select *
+		from reply
+			join board on (board_no = ref_board_no)
+		where board_no = #{boardNo} and reply_status = 'Y'
+		order by reply_no desc
+	</select>
+	
+	<insert id="insertGalaryReplyEnroll">
+		insert into reply values(seq_reply.nextval, #{replyContent}, #{boardNo}, #{id}, default, default)
+	</insert>
+	
+	<update id="deleteGalaryReply">
+		update reply
+		set reply_status ='N'
+		where ref_board_no = #{boardNo} and reply_writer = #{id} and reply_no = #{replyNo}
+	</update>
+	
+</mapper>

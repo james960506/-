@@ -1,0 +1,40 @@
+@charset "UTF-8";
+body{
+	width:700px;
+	height:500px;
+}
+h1{
+	display:inline;
+}
+.main{
+	width:100%;
+	margin: auto;
+}
+.main table{
+	text-indent: 25px;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 40px;
+}
+
+input[type=button]{
+	width: 100px;
+	height: 30px;
+	margin-bottom: 20px;
+	float:right;
+	background:black;
+	color:white;
+}
+
+input[type=submit]{
+	width: 100px;
+	height: 30px;
+	margin-bottom: 20px;
+	float:right;
+	background:lightgray;
+	color:black;
+}
+
+.address{
+	width:550px;
+}

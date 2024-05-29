@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
+html, body{
+	font-family : Roboto; 
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#myHistory{
+	display:inline-block;
+	padding:200px;
+}
+
+
+#allMypage{
+	font-family: 'Black Han Sans', sans-serif;
+	padding-top:150px;
+	height:500px;
+	width:100%;
+}
+
+.main_content{
+	width: 65%;
+	height: 30%;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: -140px;
+}
+/* 예약기간 */
+.top {
+	width: 90%;
+	heigth: 200px;
+	border: 1px solid black;
+	margin: auto;
+	margin-bottom: 50px;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+.top ul{
+	margin:20px;
+}
+.top li {
+	display: inline;
+	padding: 30px;
+}
+.top li:first-child{
+	margin-left: 50px;
+}
+/* 테이블 */
+.table h3, .main_content h1{
+	margin-left: 55px;
+}
+.table table{
+	margin: auto;
+	border-collapse: collapse;
+	width: 90%;
+}
+.table tr{
+	height: 50px;
+	border-bottom: 1px solid #E2E2E2;
+}
+.table tr:hover td{
+	background-color: #aba5a5;;
+	cursor: pointer;
+}
+.table tr:first-child{
+	border-top: 2px solid black;
+	border-bottom: 1px solid gray;
+}
+.table tr:last-child{
+	border-bottom: 2px solid black;
+}
+.center{
+	text-align: center;
+}
+/*페이지 설정*/
+.board_page{
+	font-family : none; 
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+.board_page a{
+	text-align: center;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-left: 0;
+    line-height: 100%;
+}
+.board_page a.btn{
+    padding-top: 7px;
+    font-size: 12px;
+    letter-spacing: -3px;
+}
+.board_page a.num{
+    padding-top: 6px;
+    font-size: 14px;
+}
+.board_page a.num.selected{
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+.board_page a.frist{
+    border-left: 1px solid #ddd;
+}
+.fa-search{
+	cursor: pointer;
+}
+.top input[type=date]{
+	height: 30px;
+	border-radius: 5px;
+}
+.top input[type=button]{
+	height: 30px;
+	width: 75px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.table input[type=button]{
+	width: 75px;
+	border: 1px solid rgb(255, 65,65);
+	height: 25px;
+	background: rgb(255, 65,65);
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.top input[type=button]:hover{
+	background: white;
+	color: black;
+	border-color: black;
+}

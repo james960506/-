@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="reservationMapper">
+	
+	<select id="checkCount" resultType="int"> 								<!-- 날짜 배열을 대입하여 해당 날짜에 예약한 사람 수를 계산하여 반환하는 SELECT문  -->
+		SELECT SUM(LENGTH(NVL(REGEXP_REPLACE(DNOS, '[^/]+', ''), 0)) + 1)   <!-- DNOS : 예약자 EX)1/2/3 -->
+		FROM RESERVATION
+		WHERE #{searchArr} BETWEEN TO_CHAR(IN_DATE, 'YYYY-MM-DD') 			<!-- DNOS : IN_DATE 체크인 날짜 -->
+		AND TO_CHAR(OUT_DATE, 'YYYY-MM-DD')									<!-- DNOS : OUT_DATE 체크아웃 날짜 -->
+	</select>
+	
+	<select id="selectDog" resultType="Dog">
+		SELECT * FROM DOG WHERE USER_ID = #{id}
+	</select>
+	
+	<!-- 임시 -->
+	<select id="selectCost" resultType="_int">
+		SELECT DAY_COST FROM COST 
+		WHERE DOG_SIZE like '%' || #{cboxValue} || '%'
+	</select>
+	
+	<select id="selectCostL" resultType="_int">
+		SELECT DAY_COST FROM COST 
+		WHERE DOG_SIZE = '대형견'
+	</select>
+	
+	<select id="selectCostXL" resultType="_int">
+		SELECT DAY_COST FROM COST 
+		WHERE DOG_SIZE = '초대형견'
+	</select>
+	
+	<select id="selectLastRno" resultType="int">
+		SELECT RNO FROM (SELECT RNO FROM RESERVATION ORDER BY RNO DESC) WHERE ROWNUM = 1
+	</select>
+	
+	<insert id="insertRes" parameterType="Reservation">
+		INSERT INTO RESERVATION
+		VALUES(SEQ_RESERVATION.NEXTVAL, #{inDate}, #{outDate}, DEFAULT, DEFAULT, #{totalprice}, DEFAULT, DEFAULT, #{userId}, #{etc}, #{dnos}, DEFAULT)
+	</insert>
+	
+	<select id="getListCount" resultType="int">
+		SELECT COUNT(*) FROM RESERVATION
+		WHERE USER_ID = #{id} AND DELETE_STATUS = 'N' AND RESERVE_DATE<![CDATA[ > ]]>TO_CHAR(ADD_MONTHS(SYSDATE,-1),'YYYY-MM-DD')
+	</select>
+	
+	<select id="selectMyResList" resultType="Reservation">
+		SELECT *
+		FROM RESERVATION
+		JOIN MEMBER USING(USER_ID)
+		WHERE DELETE_STATUS = 'N' AND USER_ID = #{id} AND RESERVE_DATE<![CDATA[ > ]]>TO_CHAR(ADD_MONTHS(SYSDATE,-1),'YYYY-MM-DD')
+		ORDER BY RNO DESC
+	</select>
+	
+	<select id="selectMyRes" resultType="Reservation">
+		SELECT * 
+		FROM RESERVATION
+		JOIN MEMBER USING(USER_ID)
+		WHERE DELETE_STATUS = 'N' AND RNO = #{rno}
+	</select>
+	
+	<select id="selectDogList" resultType="Dog">
+		SELECT * FROM DOG
+		WHERE DNO IN
+		<foreach collection="array" index="index" item="dnos" open="(" separator="," close=")">
+			#{dnos}
+		</foreach>
+	</select>
+	
+	<select id="getSearchListCount" resultType="int">
+		SELECT COUNT(*) 
+		FROM RESERVATION
+		WHERE USER_ID = #{id} AND DELETE_STATUS = 'N'
+		<if test="value =='1W'" >
+			AND RESERVE_DATE >= TO_CHAR(SYSDATE-7, 'YYYYMMDD')
+		</if>
+		<if test="value =='6M'" >
+			AND RESERVE_DATE >= TO_CHAR(ADD_MONTHS(SYSDATE,-6), 'YYYYMMDD')
+		</if>
+		<if test="value =='1Y'" >
+			AND RESERVE_DATE >= TO_CHAR(ADD_MONTHS(SYSDATE,-12), 'YYYYMMDD')
+		</if>
+		<if test='startDate != null' >
+			AND TO_CHAR(RESERVE_DATE, 'YYYY-MM-DD') BETWEEN #{startDate} AND #{endDate}
+		</if>
+	</select>
+	
+	<select id="searchResDate" resultType="Reservation">
+		SELECT RNO, IN_DATE, OUT_DATE, R.STATUS, RESERVE_DATE, TOTALPRICE, PAY_METHOD, CARD_NAME, R.USER_ID, ETC, DNOS, M.UNAME 
+		FROM RESERVATION R
+		JOIN MEMBER M ON(R.USER_ID = M.USER_ID)
+		WHERE R.USER_ID = #{id} AND DELETE_STATUS = 'N'
+		<if test="value =='1W'" >
+			AND RESERVE_DATE >= TO_CHAR(SYSDATE-7, 'YYYYMMDD')
+		</if>
+		<if test="value =='6M'" >
+			AND RESERVE_DATE >= TO_CHAR(ADD_MONTHS(SYSDATE,-6), 'YYYYMMDD')
+		</if>
+		<if test="value =='1Y'" >
+			AND RESERVE_DATE >= TO_CHAR(ADD_MONTHS(SYSDATE,-12), 'YYYYMMDD')
+		</if>
+		<if test='startDate != null' >
+			AND TO_CHAR(RESERVE_DATE, 'YYYY-MM-DD') BETWEEN #{startDate} AND #{endDate}
+		</if>
+		ORDER BY RNO DESC
+	</select>
+	
+	<update id="updateStatus">
+		UPDATE RESERVATION
+		SET STATUS = #{text} 
+		WHERE RNO = #{rno}
+	</update>
+</mapper>
+ 

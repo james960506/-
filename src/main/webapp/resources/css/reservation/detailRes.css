@@ -1,0 +1,79 @@
+@charset "UTF-8";
+body{
+	width:700px;
+	height:1000px;
+}
+h1{
+	display:inline;
+}
+.main{
+	width:100%;
+	margin: auto;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+.main table{
+	text-indent: 25px;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 40px;
+}
+.main table th{
+	width: 120px;
+}
+.main tr:first-child td:last-child{
+	margin-bottom: -20px;
+}
+.childTable{
+	margin: auto;
+	text-indent: 0 !important;
+	border-collapse: collapse;
+	text-align:center !important;
+	width: 100%;
+}
+.childTable tr{
+	height: 40px;
+	border-bottom: 1px solid #E2E2E2;
+}
+.childTable tr:first-child{
+	border-top: 2px solid black;
+	border-bottom: 1px solid gray;
+}
+.childTable tr:last-child{
+	border-bottom: 2px solid black;
+	height: 100px;
+}
+.childTable tr:last-child td{
+	border-top: 1px solid gray;
+}
+.etc th{
+	border-top: 2px solid black; 
+}
+caption{
+	font-weight: bold;
+	text-align: left !important;
+}
+
+.payment{
+	margin: auto;
+	border-collapse: collapse;
+	text-align:center;
+	width: 100%;
+}
+.payment tr{
+	height: 50px;
+	border-bottom: 1px solid #E2E2E2;
+}
+.payment tr:first-child{
+	border-top: 2px solid black;
+	border-bottom: 1px solid gray;
+}
+.payment tr:last-child{
+	border-bottom: 2px solid black;
+}
+input[type=button]{
+	width: 100px;
+	height: 30px;
+	margin-bottom: 20px;
+	float:right;
+}

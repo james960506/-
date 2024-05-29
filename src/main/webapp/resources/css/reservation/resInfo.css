@@ -1,0 +1,82 @@
+@charset "UTF-8";
+html, body{
+	font-family : Roboto; 
+}
+.main_content{
+	width: 65%;
+	height: auto;
+	margin: auto;
+	margin-top: 50px;
+}
+h4{
+	margin-left: 130px;
+	margin-bottom: 10px;
+}
+h1{
+	margin-left: 120px;
+}
+/* 공용 부분 */
+.firtable{
+	height: 300px;
+}
+.firTable, .secTable, .thiTable{
+	width: 100%;
+}
+.preBtn{
+	width: 100%;
+}
+.firTable table, .secTable table, .thiTable table{
+	width: 80%;
+	margin: auto;
+	margin-bottom: 30px;
+	border-collapse: collapse;
+}
+.firTable tr, .secTable tr, .thiTable tr{
+	height: 40px;
+}
+.firTable tr:first-child, .secTable tr:first-child, .thiTable tr:first-child{
+	border-top: 2px solid black;
+}
+.firTable tr:last-child, .secTable tr:last-child, .thiTable tr:last-child{
+	border-bottom: 2px solid black;
+}
+.firTable th, .secTable th, .thiTable th{
+	background: #ebebeb;
+	border-bottom: 1px solid #c0c0c0;
+}
+.firTable td, .secTable td, .thiTable td{
+	border-bottom: 1px solid #c0c0c0;
+}
+.secTable th, .secTable td{
+	border-right: 1px solid #c0c0c0;
+}
+.firTable th, .thiTable th{
+	width: 30%;
+	text-indent: 1em;
+}
+.firTable td, .thiTable td{
+	text-indent: 1em;
+}
+/*반려견 정보*/
+.secTable table{
+	text-align: center;
+	table-layout: fixed;
+}
+.lastTd{
+	text-align:left;
+}
+.etc{
+	width: 50%;
+}
+.preBtn{
+	width: 80%;
+	text-align:center;
+	margin: auto;
+}
+.preBtn input[type=button]{
+	margin-left: 30px;
+	width: 120px;
+	height: 35px;
+	cursor: pointer;
+	font-weight: bold;
+}

@@ -1,0 +1,147 @@
+@charset "UTF-8";
+body {
+  background:white;
+  font-family:"Raleway";
+}
+.form {
+  position:absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:80%;
+  padding:10px;
+}
+.title {	
+  width:300px;
+  height:30px;
+  text-align:center;
+  margin-bottom: 40px;
+  align: center;
+  color:black;
+  font-size:30px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+table {
+  margin-top:15px;
+}
+
+.table input {
+  width:300px;
+  padding:10px;
+  font-size:17px;
+  margin:5px 0px;
+  border-radius:10px;
+  box-sizing:border-box;
+  border:1px solid #222;
+  background:#f5f5f5;
+}
+
+#userId{
+	background:lightgray;
+}
+
+#sample6{
+  display: inline-block;
+  width:100px;
+  padding:10px;
+  font-size:16px;
+  font-weight:600;  
+  margin:5px 0px;	
+  cursor:pointer;  
+  border-radius:10px;
+  box-sizing:border-box;
+  border:1px solid #222;
+  background:lightgray;
+}
+#sample6_postcode{
+  width:200px;
+  padding:10px;
+  font-size:16px;
+  margin:5px 0px;
+  border-radius:10px;
+  box-sizing:border-box;
+  border:1px solid #222;
+  background:#f5f5f5;
+}
+
+#popup_button {
+  width:100%;
+  padding:10px;
+  font-size:20px;
+  font-weight:600;
+  margin-top:5px;
+  border-radius:10px;
+  background:white;
+  color:black;
+  cursor:pointer;
+  border:1px solid black;
+  outline:none;
+  height: 45px
+}
+#popup_button:hover{
+  background:lightgray;
+  color:black;
+  border:0px solid white;
+  outline:none;
+}
+
+#submit-btn {
+  width:100%;
+  padding:10px;
+  font-size:20px;
+  font-weight:600;
+  margin-top:5px;
+  border-radius:10px;
+  background:rgb(255, 243, 157);
+  color:black;
+  cursor:pointer;
+  border:0px solid white;
+  outline:none;
+  height: 45px;
+}
+
+#changePwd{
+  width:100%;
+  padding:10px;
+  margin:5px 0px;
+  border-radius:10px;
+  box-sizing:border-box;
+  border:#222;
+  background:white;
+  border:1px solid black;
+  color:black;
+  cursor:pointer;
+  font-weight:700;
+  font-size:20px;
+  height:45px;
+}
+#changePwd:hover{
+  background:rgb(255, 243, 157);
+  color:black;
+  border:0px solid white;
+  outline:none;
+}
+
+#deleteBtn {
+  width:100%;
+  padding:10px;
+  font-size:20px;
+  font-weight:600;
+  margin-top:5px;
+  border-radius:10px;
+  background:white;
+  color:black;
+  cursor:pointer;
+  border:1px solid black;
+  outline:none;
+  height: 45px
+}
+
+#deleteBtn:hover{
+  color:black;
+  border:0px solid white;
+  outline:none;
+  background:#F79F81;
+}
